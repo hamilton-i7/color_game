@@ -1,0 +1,53 @@
+<svg id="Illustration-simple" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="464" height="300.98" viewBox="0 0 464 300.98">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#16222a"/>
+      <stop offset="1" stop-color="#3a6073"/>
+    </linearGradient>
+  </defs>
+  <path id="Path_1" data-name="Path 1" d="M375,277.384c-77.847,80.762-130.057,7.848-208.647,0C99.482,270.706-.553,367.646-.553,367.646V578.034H375Z" transform="translate(48 -277.054)" fill="url(#linear-gradient)"/>
+  <g id="Mountains" transform="translate(48 -366.02)">
+    <path id="Polygon_5" data-name="Polygon 5" d="M66,0l66,62H0Z" transform="translate(207 605)" fill="#9aecdb"/>
+    <path id="Polygon_1" data-name="Polygon 1" d="M72.5,0,145,93H0Z" transform="translate(-48 574)" fill="#58b19f"/>
+    <path id="Path_3" data-name="Path 3" d="M162.5,0,325,86H0Z" transform="translate(91 581)" fill="#4b9b8b"/>
+    <path id="Path_2" data-name="Path 2" d="M70.5,0,141,86H0Z" transform="translate(268 581)" fill="#58b19f"/>
+    <path id="Polygon_2" data-name="Polygon 2" d="M44.5,0,89,62H0Z" transform="translate(35 605)" fill="#9aecdb"/>
+  </g>
+  <g id="Stars" transform="translate(48 -366.02)">
+    <g id="Star" transform="translate(55 436)">
+      <path id="Polygon_6" data-name="Polygon 6" d="M5.5,0,6.875,4.091,11,4.2,7.725,6.841,8.9,11,5.5,8.54,2.1,11,3.275,6.841,0,4.2l4.125-.111Z" fill="#fff"/>
+    </g>
+    <g id="Star-2" data-name="Star" transform="translate(219 471)">
+      <path id="Polygon_6-2" data-name="Polygon 6" d="M5.5,0,6.875,4.091,11,4.2,7.725,6.841,8.9,11,5.5,8.54,2.1,11,3.275,6.841,0,4.2l4.125-.111Z" fill="#fff"/>
+    </g>
+    <g id="Star-3" data-name="Star" transform="translate(85 511)">
+      <path id="Polygon_6-3" data-name="Polygon 6" d="M5.5,0,6.875,4.091,11,4.2,7.725,6.841,8.9,11,5.5,8.54,2.1,11,3.275,6.841,0,4.2l4.125-.111Z" fill="#fff"/>
+    </g>
+  </g>
+  <g id="Little_stars" data-name="Little stars" transform="translate(48 -366.02)">
+    <g id="Little_star" data-name="Little star" transform="translate(184 460)">
+      <circle id="Ellipse_23" data-name="Ellipse 23" cx="2" cy="2" r="2" transform="translate(-1 -1)" fill="#fff"/>
+    </g>
+    <g id="Little_star-2" data-name="Little star" transform="translate(128 476)">
+      <circle id="Ellipse_23-2" data-name="Ellipse 23" cx="2" cy="2" r="2" fill="#fff"/>
+    </g>
+    <g id="Little_star-3" data-name="Little star" transform="translate(100 544)">
+      <circle id="Ellipse_23-3" data-name="Ellipse 23" cx="2" cy="2" r="2" fill="#fff"/>
+    </g>
+    <g id="Little_star-4" data-name="Little star" transform="translate(104 404)">
+      <circle id="Ellipse_23-4" data-name="Ellipse 23" cx="2" cy="2" r="2" fill="#fff"/>
+    </g>
+    <g id="Little_star-5" data-name="Little star" transform="translate(157 388)">
+      <circle id="Ellipse_23-5" data-name="Ellipse 23" cx="2" cy="2" r="2" fill="#fff"/>
+    </g>
+    <g id="Little_star-6" data-name="Little star" transform="translate(28 468)">
+      <circle id="Ellipse_23-6" data-name="Ellipse 23" cx="2" cy="2" r="2" fill="#fff"/>
+    </g>
+    <g id="Little_star-7" data-name="Little star" transform="translate(7 511)">
+      <circle id="Ellipse_23-7" data-name="Ellipse 23" cx="2" cy="2" r="2" fill="#fff"/>
+    </g>
+    <g id="Little_star-8" data-name="Little star" transform="translate(283 477)">
+      <circle id="Ellipse_23-8" data-name="Ellipse 23" cx="2" cy="2" r="2" fill="#fff"/>
+    </g>
+  </g>
+</svg>

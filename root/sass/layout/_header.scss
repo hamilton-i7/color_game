@@ -1,0 +1,8 @@
+.hero {
+    padding: 5rem;
+    text-align: center;
+
+    & span {
+        display: block;
+    }
+}
