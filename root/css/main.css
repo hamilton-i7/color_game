@@ -24,7 +24,7 @@ body {
   overflow-x: hidden;
 }
 
-#hideBackground {
+#js--hideBackground {
   background-image: none;
 }
 
