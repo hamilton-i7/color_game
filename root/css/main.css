@@ -24,6 +24,10 @@ body {
   overflow-x: hidden;
 }
 
+#hideBackground {
+  background-image: none;
+}
+
 body {
   font-family: 'Karla', sans-serif;
   font-weight: 400;
@@ -38,6 +42,10 @@ body {
   font-size: 2.8rem;
   line-height: 1.3;
   text-transform: uppercase;
+}
+
+.heading-primary span {
+  display: block;
 }
 
 .heading-secondary {
@@ -59,6 +67,15 @@ body {
 }
 
 .main-menu > h2 {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-bottom: 2.5rem;
   position: relative;
 }
@@ -74,8 +91,14 @@ body {
   width: 24.9rem;
 }
 
+.main-menu > h2 .icon-arrow {
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
 .main-menu-list {
   font-size: 1.8rem;
+  list-style: none;
   text-transform: capitalize;
 }
 
@@ -98,11 +121,149 @@ body {
   margin-bottom: 2rem;
 }
 
+.game {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-rows: minmax(5rem, auto);
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-areas: ". . . . . icon" ". box1 box1 box1 box1 ." ". box2 box2 box2 box2 ." ". box3 box3 box3 box3 .";
+  row-gap: 3rem;
+}
+
+.game__help {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-row: 1;
+  -ms-grid-column: 6;
+  grid-area: icon;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.game__card {
+  border-radius: 1.5rem;
+  -webkit-box-shadow: 0 10px 12px rgba(19, 19, 19, 0.3);
+          box-shadow: 0 10px 12px rgba(19, 19, 19, 0.3);
+  height: 8rem;
+  width: 100%;
+}
+
+.game__card:nth-child(2) {
+  background-color: #DE0D0D;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 4;
+  grid-area: box1;
+}
+
+.game__card:nth-child(3) {
+  background-color: #237ED4;
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 4;
+  grid-area: box2;
+}
+
+.game__card:nth-child(4) {
+  background-color: #87C16A;
+  -ms-grid-row: 4;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 4;
+  grid-area: box3;
+}
+
 .hero {
   padding: 5rem;
   text-align: center;
 }
 
-.hero span {
+.hero--alternate {
+  background-color: #488d7f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 15.5rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 3rem;
+  text-align: center;
+}
+
+.hero--alternate span {
   display: block;
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+
+.hero-info {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #cad3c8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style: none;
+  padding: 1rem 2rem;
+}
+
+.hero-info__item {
+  color: #2c3a47;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
+.hero-info__item:first-child {
+  font-weight: bold;
+}
+
+.options-menu {
+  bottom: 0;
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.content {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-backdrop-filter: blur(2.5rem);
+          backdrop-filter: blur(2.5rem);
+  background-color: rgba(19, 19, 19, 0.6);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+
+.content > h1 {
+  margin-bottom: 5rem;
 }

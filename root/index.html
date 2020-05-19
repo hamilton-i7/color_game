@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="css/main.css">
 
+    <script src="js/script.js" defer></script>
+
     <title>RGB Color Guessing Game</title>
 </head>
 <body>
@@ -18,10 +20,71 @@
     <nav class="main-menu">
         <h2 class="heading-secondary">main menu</h2>
         <ul class="main-menu-list">
-            <li class="main-menu-list__item"><a href="#" class="link">classic</a></li>
-            <li class="main-menu-list__item"><a href="#" class="link">time trial</a></li>
-            <li class="main-menu-list__item"><a href="#" class="link">survival</a></li>
+            <li class="main-menu-list__item"><a href="#" class="link" id="js--classic">classic</a></li>
+            <li class="main-menu-list__item"><a href="#" class="link" id="js--timeTrial">time trial</a></li>
+            <li class="main-menu-list__item"><a href="#" class="link" id="js--survival">survival</a></li>
         </ul>
     </nav>
+
+    <template id="js--selectDifficulty">
+        <header class="hero">
+            <h1 class="heading-primary">rgb <span>guessing game</span></h1>
+        </header>
+
+        <nav class="main-menu">
+            <h2 class="heading-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18.5" height="18.5" viewBox="0 0 18.5 18.5" class="icon-arrow" id="js--arrow">
+                    <path id="icon-arrow" d="M8,17.25A9.25,9.25,0,1,0,17.25,8,9.248,9.248,0,0,0,8,17.25Zm16.71,0a7.46,7.46,0,1,1-7.46-7.46A7.458,7.458,0,0,1,24.71,17.25ZM22.024,16.5V18a.449.449,0,0,1-.448.448H17.25v2.5a.448.448,0,0,1-.765.317l-3.693-3.693a.448.448,0,0,1,0-.634l3.693-3.693a.448.448,0,0,1,.765.317v2.5h4.327A.449.449,0,0,1,22.024,16.5Z" transform="translate(-8 -8)" fill="#33d9b2"/>
+                </svg>
+                select difficulty
+            </h2>
+            <ul class="main-menu-list">
+                <li class="main-menu-list__item"><a href="#" class="link" id="js--easy">easy</a></li>
+                <li class="main-menu-list__item"><a href="#" class="link" id="js--hard">hard</a></li>
+            </ul>
+        </nav>
+    </template>
+
+    <template id="js--easyMode">
+        <header class="hero--alternate">
+            <h1 class="heading-primary">rgb(35, 126, 212) <span>guessing game</span></h1>
+
+            <ul class="hero-info">
+                <li class="hero-info__item"><a href="#" class="link" id="js--options">options</a></li>
+                <li class="hero-info__item">easy</li>
+                <li class="hero-info__item">lives: 2</li>
+            </ul>
+        </header>
+
+        <main class="game">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19.844" height="19.844" viewBox="0 0 19.844 19.844" class="game__help">
+                <path id="icon-question-mark" d="M17.922,8a9.922,9.922,0,1,0,9.922,9.922A9.924,9.924,0,0,0,17.922,8Zm0,17.924a8,8,0,1,1,8-8A8,8,0,0,1,17.922,25.924Zm4.291-10.21c0,2.683-2.9,2.724-2.9,3.715v.254a.48.48,0,0,1-.48.48H17.009a.48.48,0,0,1-.48-.48v-.346c0-1.43,1.084-2,1.9-2.461.7-.394,1.133-.662,1.133-1.183,0-.69-.88-1.148-1.592-1.148-.928,0-1.356.439-1.958,1.2a.48.48,0,0,1-.667.085l-1.113-.844a.481.481,0,0,1-.106-.655,4.5,4.5,0,0,1,4.024-2.168C20.117,12.161,22.213,13.693,22.213,15.714ZM19.6,22.4a1.68,1.68,0,1,1-1.68-1.68A1.682,1.682,0,0,1,19.6,22.4Z" transform="translate(-8 -8)" fill="#33d9b2"/>
+            </svg>
+              
+            <div class="game__card" id="js--box1"></div>
+            <div class="game__card" id="js--box2"></div>
+            <div class="game__card" id="js--box3"></div>
+        </main>
+    </template>
+
+    <template class="options-menu" id="js--optionsMenu">
+        <div class="content">
+            <h1 class="heading-primary">rgb <span>guessing game</span></h1>
+        
+            <nav class="main-menu">
+                <h2 class="heading-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18.5" height="18.5" viewBox="0 0 18.5 18.5" class="icon-arrow" id="js--arrow">
+                        <path id="icon-arrow" d="M8,17.25A9.25,9.25,0,1,0,17.25,8,9.248,9.248,0,0,0,8,17.25Zm16.71,0a7.46,7.46,0,1,1-7.46-7.46A7.458,7.458,0,0,1,24.71,17.25ZM22.024,16.5V18a.449.449,0,0,1-.448.448H17.25v2.5a.448.448,0,0,1-.765.317l-3.693-3.693a.448.448,0,0,1,0-.634l3.693-3.693a.448.448,0,0,1,.765.317v2.5h4.327A.449.449,0,0,1,22.024,16.5Z" transform="translate(-8 -8)" fill="#33d9b2"/>
+                    </svg>
+                    options
+                </h2>
+    
+                <ul class="main-menu-list">
+                    <li class="main-menu-list__item"><a href="#" class="link" id="js--classic">new game</a></li>
+                    <li class="main-menu-list__item"><a href="#" class="link" id="js--timeTrial">exit</a></li>
+                </ul>
+            </nav>
+        </div>
+    </template>
 </body>
 </html>

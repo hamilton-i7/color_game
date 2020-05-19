@@ -1,0 +1,37 @@
+.game {
+    display: grid;
+    grid-auto-rows: minmax(5rem, auto);
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: 
+        ". . . . . icon"
+        ". box1 box1 box1 box1 ."
+        ". box2 box2 box2 box2 ."
+        ". box3 box3 box3 box3 .";
+    row-gap: 3rem;
+
+    &__help {
+        align-self: center;
+        grid-area: icon;
+        justify-self: center;
+    }
+
+    &__card {
+        border-radius: 1.5rem;
+        box-shadow: $shadow;
+        height: 8rem;
+        width: 100%;
+
+        &:nth-child(2) {
+            background-color: #DE0D0D;
+            grid-area: box1;
+        }
+        &:nth-child(3) {
+            background-color: #237ED4;
+            grid-area: box2;
+        }
+        &:nth-child(4) {
+            background-color: #87C16A;
+            grid-area: box3;
+        }
+    }
+}
