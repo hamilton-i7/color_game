@@ -118,7 +118,7 @@ body {
 }
 
 .main-menu-list__item:not(:last-child) {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .game {
@@ -224,6 +224,7 @@ body {
 }
 
 .hero-info__item:first-child {
+  color: #488d7f;
   font-weight: bold;
 }
 
