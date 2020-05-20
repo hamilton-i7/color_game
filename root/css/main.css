@@ -24,10 +24,6 @@ body {
   overflow-x: hidden;
 }
 
-#js--hideBackground {
-  background-image: none;
-}
-
 body {
   font-family: 'Karla', sans-serif;
   font-weight: 400;
