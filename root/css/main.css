@@ -92,6 +92,7 @@ body {
 }
 
 .main-menu > h2 .icon-arrow {
+  color: #33d9b2;
   cursor: pointer;
   margin-right: 1rem;
 }
