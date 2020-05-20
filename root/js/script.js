@@ -40,7 +40,7 @@ function toggleOptionsMenu(e) {
         displayOptionsMenu();
     }
     else if(element.parentElement.innerText === 'Options') {
-        optionsMenu.style.display = 'none';
+        exitOptionsMenu();
     }
     else if(element.id === 'js--exit') {
         reset();
@@ -54,7 +54,7 @@ function toggleHelp(e) {
         displayHelpInfo();
     }
     else if(element.id === 'js--helpOut') {
-        help.style.display = 'none';
+        exitHelpInfo();
     }
 }
 
@@ -65,20 +65,34 @@ function reset() {
 
 function displayOptionsMenu() { 
     if(document.body.contains(optionsMenu)) {
+        document.body.style.overflowY = 'hidden';
         optionsMenu.style.display = 'block';
     }
     else {
         document.body.appendChild(optionsMenu);
+        document.body.style.overflowY = 'hidden';
         optionsMenu.style.display = 'block'; 
     }
 }
 
+function exitOptionsMenu() {
+    document.body.style.overflowY = 'scroll'
+    optionsMenu.style.display = 'none';
+} 
+
 function displayHelpInfo() {
     if(document.body.contains(help)) {
+        document.body.style.overflowY = 'hidden';
         help.style.display = 'block';
     }
     else {
         document.body.appendChild(help);
+        document.body.style.overflowY = 'hidden';
         help.style.display = 'block';
     }
+}
+
+function exitHelpInfo() {
+    document.body.style.overflowY = 'scroll';
+    help.style.display = 'none';
 }
