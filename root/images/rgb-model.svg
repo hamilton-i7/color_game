@@ -1,0 +1,5 @@
+<svg id="rgb-model" xmlns="http://www.w3.org/2000/svg" width="105" height="101" viewBox="0 0 105 101">
+  <path id="Path_5" data-name="Path 5" d="M35,0A35,35,0,1,1,0,35,35,35,0,0,1,35,0Z" fill="red" style="mix-blend-mode: screen;isolation: isolate"/>
+  <path id="Path_7" data-name="Path 7" d="M35,0A35,35,0,1,1,0,35,35,35,0,0,1,35,0Z" transform="translate(19 31)" fill="blue" style="mix-blend-mode: screen;isolation: isolate"/>
+  <path id="Path_6" data-name="Path 6" d="M35,0A35,35,0,1,1,0,35,35,35,0,0,1,35,0Z" transform="translate(35)" fill="lime" style="mix-blend-mode: screen;isolation: isolate"/>
+</svg>

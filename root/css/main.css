@@ -20,7 +20,7 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: #f7f1e3;
-  min-height: 67.5rem;
+  height: 100vh;
   overflow-x: hidden;
 }
 
@@ -152,7 +152,7 @@ body {
   -ms-flex-item-align: center;
       align-self: center;
   color: #33d9b2;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   -ms-grid-row: 1;
   -ms-grid-column: 4;
   grid-area: icon;

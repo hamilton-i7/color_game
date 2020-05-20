@@ -11,7 +11,8 @@ let arrow;
 let helpContent;
 
 document.addEventListener('click', changePage);
-document.addEventListener('click', toggleOverlay);
+document.addEventListener('click', toggleOptionsMenu);
+document.addEventListener('click', toggleHelp);
 
 
 function changePage(e) {
@@ -32,7 +33,7 @@ function changePage(e) {
     }
 }
 
-function toggleOverlay(e) {
+function toggleOptionsMenu(e) {
     const element = e.target;
 
     if(element.id === 'js--options') {
@@ -44,21 +45,18 @@ function toggleOverlay(e) {
     else if(element.id === 'js--exit') {
         reset();
     }
-    else if(element.id === 'js--help') {
+}
+
+function toggleHelp(e) {
+    const element = e.target;
+
+    if(element.id === 'js--help') {
         displayHelpInfo();
     }
     else if(element.id === 'js--helpOut') {
         help.style.display = 'none';
     }
 }
-
-// function toggleHelp(e) {
-//     const element = e.target;
-
-//     if(element.id === 'js--help') {
-//         displayHelpInfo();
-//     }
-// }
 
 function reset() {
     document.body.innerHTML = original;
