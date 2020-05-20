@@ -26,11 +26,19 @@ function toggleMenu(e) {
     const element = e.target;
 
     if(element.id === 'js--options') {
-        document.body.appendChild(optionsMenu.content);
-        menu = document.querySelector('.options-menu');
-        menu.style.display = 'block';
+        if(document.body.contains(menu)) {
+            menu = document.querySelector('.options-menu');
+            menu.style.display = 'block';
+        }
+        else {
+            document.body.appendChild(optionsMenu.content);  
+            menu = document.querySelector('.options-menu');
+            menu.style.display = 'block'; 
+        }
     }
-    else if(element.id === 'js--arrow') {
-        element.parentElement.parentElement.parentElement.parentElement.style.display = 'none';
+    else if(element.id === 'js--arrow' || element.classList.contains('heading-secondary') || element.id === 'icon-arrow') {
+        menu = document.querySelector('.options-menu');
+        menu.style.display = 'none';
+        console.log('works');
     }
 }
