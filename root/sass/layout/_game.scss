@@ -24,15 +24,15 @@
         width: 100%;
 
         &:nth-child(2) {
-            background-color: #DE0D0D;
+            background-color: white;
             grid-area: box1;
         }
         &:nth-child(3) {
-            background-color: #237ED4;
+            background-color: white;
             grid-area: box2;
         }
         &:nth-child(4) {
-            background-color: #87C16A;
+            background-color: white;
             grid-area: box3;
         }
     }

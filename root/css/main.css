@@ -164,7 +164,7 @@ body {
 }
 
 .game__card:nth-child(2) {
-  background-color: #DE0D0D;
+  background-color: white;
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   -ms-grid-column-span: 4;
@@ -172,7 +172,7 @@ body {
 }
 
 .game__card:nth-child(3) {
-  background-color: #237ED4;
+  background-color: white;
   -ms-grid-row: 3;
   -ms-grid-column: 2;
   -ms-grid-column-span: 4;
@@ -180,11 +180,23 @@ body {
 }
 
 .game__card:nth-child(4) {
-  background-color: #87C16A;
+  background-color: white;
   -ms-grid-row: 4;
   -ms-grid-column: 2;
   -ms-grid-column-span: 4;
   grid-area: box3;
+}
+
+.gameover {
+  bottom: 0;
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 }
 
 .hero {
@@ -209,10 +221,8 @@ body {
   text-align: center;
 }
 
-.hero--alternate span {
-  display: block;
-  font-size: 2rem;
-  text-transform: capitalize;
+.hero--alternate > h1 {
+  padding-top: 1.5rem;
 }
 
 .hero-info {
@@ -262,7 +272,7 @@ body {
   background-size: 127%;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: ". . . icon" "par1 par1 par1 par1" "rgb-model rgb-model rgb-model rgb-model" "par2 par2 par2 par2" "par3 par3 par3 rgb-black" "rgb-white par4 par4 par4" "par5 par5 par5 rgb-green";
+      grid-template-areas: ". . . icon" "par1 par1 par1 par1" "rgb-model rgb-model rgb-model rgb-model" "par2 par2 par2 par2" "par3 par3 par3 rgb-white" "rgb-black par4 par4 par4" "par5 par5 par5 rgb-green";
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   height: 100%;
@@ -336,14 +346,14 @@ body {
 }
 
 .rgb-white {
-  -ms-grid-row: 6;
-  -ms-grid-column: 1;
+  -ms-grid-row: 5;
+  -ms-grid-column: 4;
   grid-area: rgb-white;
 }
 
 .rgb-black {
-  -ms-grid-row: 5;
-  -ms-grid-column: 4;
+  -ms-grid-row: 6;
+  -ms-grid-column: 1;
   grid-area: rgb-black;
 }
 

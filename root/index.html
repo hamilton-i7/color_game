@@ -46,12 +46,12 @@
 
     <template id="js--easyMode">
         <header class="hero--alternate">
-            <h1 class="heading-primary">rgb(35, 126, 212) <span>guessing game</span></h1>
+            <h1 class="heading-primary">rgb(35, 126, 212)</h1>
 
             <ul class="hero-info">
                 <li class="hero-info__item"><a href="#" class="link" id="js--options">options</a></li>
-                <li class="hero-info__item">easy</li>
-                <li class="hero-info__item">lives: 2</li>
+                <li class="hero-info__item" id="js--mode">easy</li>
+                <li class="hero-info__item" id="js--lives">lives: <strong>2</strong></li>
             </ul>
         </header>
 
@@ -102,6 +102,23 @@
                 <h2 class="heading-secondary">
                     <i class="far fa-arrow-alt-circle-left icon-arrow"></i>
                     options
+                </h2>
+    
+                <ul class="main-menu-list">
+                    <li class="main-menu-list__item"><a href="#" class="link" id="js--newGame">new game</a></li>
+                    <li class="main-menu-list__item"><a href="#" class="link" id="js--exit">exit</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="gameover" >
+        <div class="gameover__content">
+            <h1 class="heading-primary">rgb <span>guessing game</span></h1>
+        
+            <nav class="main-menu">
+                <h2 class="heading-secondary">
+                    gameover
                 </h2>
     
                 <ul class="main-menu-list">

@@ -12,10 +12,8 @@
         padding-top: 3rem;
         text-align: center;
 
-        & span {
-            display: block;
-            font-size: 2rem;
-            text-transform: capitalize;
+        & > h1 {
+            padding-top: 1.5rem;
         }
     }
     
