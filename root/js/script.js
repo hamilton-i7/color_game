@@ -4,6 +4,7 @@ const easyMode = document.getElementById('js--easyMode');
 const optionsMenu = document.querySelector('.options-menu');
 const help = document.querySelector('.help');
 const h2 = document.querySelector('.heading-secondary');
+const gameoverScreen = document.querySelector('.gameover');
 
 let menu;
 let options;
@@ -20,7 +21,7 @@ document.addEventListener('click', changePage);
 document.addEventListener('click', toggleOptionsMenu);
 document.addEventListener('click', toggleHelp);
 document.addEventListener('click', checkAnswer);
-document.addEventListener('click', gameOver);
+document.addEventListener('click', gameover);
 
 //* NAVIGATION
 
@@ -56,6 +57,11 @@ function toggleOptionsMenu(e) {
     }
     else if(element.id === 'js--exit') {
         quitGame();
+    }
+    else if(element.id === 'js--newGame') {
+        optionsMenu.style.display = 'none';
+        newGame();
+        exitGameoverScreen();
     }
 }
 
@@ -156,14 +162,11 @@ function checkAnswer(e) {
     const answer = document.querySelector('.heading-primary').innerText.toLowerCase();
 
     if(element.style.backgroundColor === answer) {
-        setPrompt();
-        changeBoxColor();
-        reset();
+        newGame();
     }
     else if(element.classList.contains('game__card') && element.style.backgroundColor !== answer) {
         element.style.visibility = 'hidden';
         loseLife();
-        // gameOver();
     }
 }
 
@@ -173,9 +176,17 @@ function reset() {
     box3 = document.getElementById('js--box3');
     const boxes = [box1, box2, box3];
 
+    lifeCount = document.getElementById('js--lives').innerText = 'LIVES: 2';
+
     boxes.forEach(function(box) {
         box.style.visibility = 'visible';
     });
+}
+
+function newGame() {
+    setPrompt();
+    changeBoxColor();
+    reset();
 }
 
 function loseLife() {
@@ -187,6 +198,29 @@ function loseLife() {
     return lifeCount.innerText = result;
 }
 
-function gameOver(e) {
+function gameover(e) {
     const element = e.target;
+    const answer = document.querySelector('.heading-primary').innerText.toLowerCase();
+    lifeCount = document.getElementById('js--lives');
+
+    if((element.classList.contains('game__card') && element.style.backgroundColor !== answer) && lifeCount.innerText === 'LIVES: 0') {
+        displayGameoverScreen();
+    }
+}
+
+function displayGameoverScreen() {
+    if(document.body.contains(gameoverScreen)) {
+        document.body.style.overflowY = 'hidden';
+        gameoverScreen.style.display = 'block';
+    }
+    else {
+        document.body.appendChild(gameoverScreen);
+        document.body.style.overflowY = 'hidden';
+        gameoverScreen.style.display = 'block'; 
+    }
+}
+
+function exitGameoverScreen() {
+    document.body.style.overflowY = 'scroll'
+    gameoverScreen.style.display = 'none';
 }
