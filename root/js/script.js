@@ -2,14 +2,16 @@ const original = document.body.innerHTML;
 const selectDifficulty = document.getElementById('js--selectDifficulty');
 const easyMode = document.getElementById('js--easyMode');
 const optionsMenu = document.querySelector('.options-menu');
+const help = document.querySelector('.help');
 const h2 = document.querySelector('.heading-secondary');
 
 let menu;
 let options;
 let arrow;
+let helpContent;
 
 document.addEventListener('click', changePage);
-document.addEventListener('click', toggleMenu);
+document.addEventListener('click', toggleOverlay);
 
 
 function changePage(e) {
@@ -30,7 +32,7 @@ function changePage(e) {
     }
 }
 
-function toggleMenu(e) {
+function toggleOverlay(e) {
     const element = e.target;
 
     if(element.id === 'js--options') {
@@ -42,7 +44,21 @@ function toggleMenu(e) {
     else if(element.id === 'js--exit') {
         reset();
     }
+    else if(element.id === 'js--help') {
+        displayHelpInfo();
+    }
+    else if(element.id === 'js--helpOut') {
+        help.style.display = 'none';
+    }
 }
+
+// function toggleHelp(e) {
+//     const element = e.target;
+
+//     if(element.id === 'js--help') {
+//         displayHelpInfo();
+//     }
+// }
 
 function reset() {
     document.body.innerHTML = original;
@@ -56,5 +72,15 @@ function displayOptionsMenu() {
     else {
         document.body.appendChild(optionsMenu);
         optionsMenu.style.display = 'block'; 
+    }
+}
+
+function displayHelpInfo() {
+    if(document.body.contains(help)) {
+        help.style.display = 'block';
+    }
+    else {
+        document.body.appendChild(help);
+        help.style.display = 'block';
     }
 }

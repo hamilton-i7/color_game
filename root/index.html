@@ -56,15 +56,43 @@
         </header>
 
         <main class="game">
-            <svg xmlns="http://www.w3.org/2000/svg" width="19.844" height="19.844" viewBox="0 0 19.844 19.844" class="game__help">
-                <path id="icon-question-mark" d="M17.922,8a9.922,9.922,0,1,0,9.922,9.922A9.924,9.924,0,0,0,17.922,8Zm0,17.924a8,8,0,1,1,8-8A8,8,0,0,1,17.922,25.924Zm4.291-10.21c0,2.683-2.9,2.724-2.9,3.715v.254a.48.48,0,0,1-.48.48H17.009a.48.48,0,0,1-.48-.48v-.346c0-1.43,1.084-2,1.9-2.461.7-.394,1.133-.662,1.133-1.183,0-.69-.88-1.148-1.592-1.148-.928,0-1.356.439-1.958,1.2a.48.48,0,0,1-.667.085l-1.113-.844a.481.481,0,0,1-.106-.655,4.5,4.5,0,0,1,4.024-2.168C20.117,12.161,22.213,13.693,22.213,15.714ZM19.6,22.4a1.68,1.68,0,1,1-1.68-1.68A1.682,1.682,0,0,1,19.6,22.4Z" transform="translate(-8 -8)" fill="#33d9b2"/>
-            </svg>
+            <i class="far fa-question-circle game__help" id="js--help"></i>
               
             <div class="game__card" id="js--box1"></div>
             <div class="game__card" id="js--box2"></div>
             <div class="game__card" id="js--box3"></div>
         </main>
     </template>
+
+    <div class="help">
+        <div class="help-content">
+            <i class="far fa-arrow-alt-circle-left icon-arrow help-content__icon" id="js--helpOut"></i>
+            <p class="paragraph" id="par1">
+                The RGB (red, green, blue) system ranges from 0 to 255.
+                It specifies how much red, green and blue a color has.
+            </p>
+    
+            <img src="images/rgb-model.png" alt="RGB model" class="rgb-model">
+    
+            <p class="paragraph" id="par2">
+                The higher the number, the lighter the color is going to be.
+            </p>
+            <p class="paragraph" id="par3">
+                For example, rgb(255, 255, 255) will have the color white as a result.
+            </p>
+            <img src="images/rgb-model-white.png" alt="White circle" class="rgb-white">
+    
+            <p class="paragraph" id="par4">
+                ... and rgb(0, 0, 0) will have the color black as a result.
+            </p>
+            <img src="images/rgb-model-black.png" alt="Black circle" class="rgb-black">
+    
+            <p class="paragraph" id="par5">
+                On the other hand, rgb(0, 150, 0) will result in a darker green.
+            </p>
+            <img src="images/rgb-model-green.png" alt="Green circle" class="rgb-green">
+        </div>
+    </div>
 
     <div class="options-menu" >
         <div class="content">

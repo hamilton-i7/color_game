@@ -1,0 +1,89 @@
+.help {
+    bottom: 0;
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+
+    &-content {
+        background-color: $color-primary-1;
+        background-image: linear-gradient(to top, rgba($color-black, .4), rgba($color-black, .01)), url(../images/illustration-simple.svg);
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: 127%;
+        display: grid;
+        grid-template-areas: 
+            ". . . icon"
+            "par1 par1 par1 par1"
+            "rgb-model rgb-model rgb-model rgb-model"
+            "par2 par2 par2 par2"
+            "par3 par3 par3 rgb-black"
+            "rgb-white par4 par4 par4"
+            "par5 par5 par5 rgb-green";
+        grid-template-columns: repeat(4, 1fr);
+        height: 100%;
+        left: 0;
+        padding: 0 2rem;
+        position: absolute;
+        top: 0;
+        width: 100%;
+
+        &__icon {
+            align-self: center;
+            color: $color-accent-1;
+            font-size: 2.2rem;
+            grid-area: icon;
+            justify-self: center;
+        }
+    }
+}
+
+#par1 {
+    grid-area: par1;
+}
+
+#par2 {
+    grid-area: par2;
+}
+
+#par3 {
+    grid-area: par3;
+}
+
+#par4 {
+    grid-area: par4;
+}
+
+#par5 {
+    grid-area: par5;
+}
+
+.rgb-model {
+    filter: opacity(.7);
+}
+
+.rgb-model {
+    grid-area: rgb-model;
+    justify-self: center;
+}
+
+.rgb-white {
+    grid-area: rgb-white;
+}
+
+.rgb-black {
+    grid-area: rgb-black;
+}
+
+.rgb-green {
+    grid-area: rgb-green;
+}
+
+.paragraph {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
