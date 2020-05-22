@@ -1,6 +1,7 @@
 const original = document.body.innerHTML;
 const selectDifficulty = document.getElementById('js--selectDifficulty');
 const easyMode = document.getElementById('js--easyMode');
+const hardMode = document.getElementById('js--hardMode');
 const optionsMenu = document.querySelector('.options-menu');
 const help = document.querySelector('.help');
 const h2 = document.querySelector('.heading-secondary');
@@ -14,6 +15,9 @@ let arrow;
 let box1;
 let box2;
 let box3;
+let box4;
+let box5;
+let box6;
 
 let lifeCount;
 
@@ -33,17 +37,25 @@ function changePage(e) {
         arrow = document.querySelector('.icon-arrow');
         arrow.setAttribute('id', 'arrowDifficulty');
     }
-    else if(element.id === 'js--easy') {
-        document.body.innerHTML = easyMode.innerHTML;
-        document.body.style.backgroundImage = 'none';
-        options = document.querySelector('#js--options');
-
-        setPrompt();
-        changeBoxColor();
-    }
     else if(element.id === 'arrowDifficulty') {
         displayMainMenu();
     }
+    else if(element.id === 'js--easy') {
+        displayGameContent(easyMode);
+        setPrompt();
+        changeBoxColor();
+    }
+    else if(element.id === 'js--hard') {
+        displayGameContent(hardMode);
+        setPrompt();
+        changeBoxColor();
+    }
+}
+
+function displayGameContent(content) {
+    document.body.innerHTML = content.innerHTML;
+    document.body.style.backgroundImage = 'none';
+    options = document.querySelector('#js--options');
 }
 
 function toggleOptionsMenu(e) {
@@ -117,15 +129,9 @@ function exitHelpInfo() {
 
 
 //* GAME LOGIC
-
-function changeBoxColor(e) {
-    box1 = document.getElementById('js--box1');
-    box2 = document.getElementById('js--box2');
-    box3 = document.getElementById('js--box3');
-
+function settingBackground(boxes) {
     const prompt = document.querySelector('.heading-primary').innerText.toLowerCase();
     const answer = prompt;
-    const boxes = [box1, box2, box3];
     const max = boxes.length - 1;
     const min = 0;
     const random = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -140,6 +146,27 @@ function changeBoxColor(e) {
             boxes[i].style.backgroundColor = `rgb(${randomNum(0, 255)})`;
         }
     } 
+}
+
+function changeBoxColor() {
+
+    if(document.body.contains(document.querySelector('#js--box6'))) {
+        box1 = document.getElementById('js--box1');
+        box2 = document.getElementById('js--box2');
+        box3 = document.getElementById('js--box3');
+        box4 = document.getElementById('js--box4');
+        box5 = document.getElementById('js--box5');
+        box6 = document.getElementById('js--box6');
+    
+        settingBackground([box1, box2, box3, box4, box5, box6]);
+    }
+    else {
+        box1 = document.getElementById('js--box1');
+        box2 = document.getElementById('js--box2');
+        box3 = document.getElementById('js--box3');
+    
+        settingBackground([box1, box2, box3]);
+    }
 }
 
 function randomNum(min, max) {
@@ -171,22 +198,51 @@ function checkAnswer(e) {
 }
 
 function reset() {
+    if(document.body.contains(document.querySelector('#js--box6'))) {
+        boxesHard();
+        lifeCount = document.getElementById('js--lives').innerText = 'LIVES: 2';
+    }
+    else {
+        boxesEasy();
+        lifeCount = document.getElementById('js--lives').innerText = 'LIVES: 2';
+    }
+}
+
+function boxesEasy() {
     box1 = document.getElementById('js--box1');
     box2 = document.getElementById('js--box2');
     box3 = document.getElementById('js--box3');
     const boxes = [box1, box2, box3];
 
-    lifeCount = document.getElementById('js--lives').innerText = 'LIVES: 2';
-
-    boxes.forEach(function(box) {
+    return (boxes.forEach(function(box) {
         box.style.visibility = 'visible';
-    });
+    }));
+}
+
+function boxesHard() {
+    box1 = document.getElementById('js--box1');
+    box2 = document.getElementById('js--box2');
+    box3 = document.getElementById('js--box3');
+    box4 = document.getElementById('js--box4');
+    box5 = document.getElementById('js--box5');
+    box6 = document.getElementById('js--box6');
+    const boxes = [box1, box2, box3, box4, box5, box6];
+
+    return (boxes.forEach(function(box) {
+        box.style.visibility = 'visible';
+    }));
 }
 
 function newGame() {
     setPrompt();
-    changeBoxColor();
     reset();
+
+    if(document.body.contains(document.querySelector('#js--box6'))) {
+        changeBoxColor();
+    }
+    else {
+        changeBoxColor();
+    }
 }
 
 function loseLife() {

@@ -1,4 +1,4 @@
-.game {
+.game-easy {
     display: grid;
     grid-auto-rows: minmax(5rem, auto);
     grid-template-columns: repeat(6, 1fr);
@@ -9,31 +9,64 @@
         ". box3 box3 box3 box3 .";
     row-gap: 3rem;
 
-    &__help {
-        align-self: center;
-        color: $color-accent-1;
-        font-size: 2.2rem;
-        grid-area: icon;
+    & .game__help {
         justify-self: center;
     }
+}
 
-    &__card {
-        border-radius: 1.5rem;
-        box-shadow: $shadow;
-        height: 8rem;
-        width: 100%;
+.game-hard {
+    display: grid;
+    gap: 3rem;
+    grid-auto-rows: minmax(5rem, auto);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+        ". icon"
+        "box1 box2"
+        "box3 box4"
+        "box5 box6";
+    padding: 0 4rem;
 
-        &:nth-child(2) {
-            background-color: white;
-            grid-area: box1;
-        }
-        &:nth-child(3) {
-            background-color: white;
-            grid-area: box2;
-        }
-        &:nth-child(4) {
-            background-color: white;
-            grid-area: box3;
-        }
+    & .game__help {
+        justify-self: end;
+    }
+}
+
+.game__help {
+    align-self: center;
+    color: $color-accent-1;
+    font-size: 2.2rem;
+    grid-area: icon;
+    justify-self: center;
+}
+
+.game__card {
+    border-radius: 1.5rem;
+    box-shadow: $shadow;
+    height: 8rem;
+    width: 100%;
+
+    &:nth-child(2) {
+        background-color: white;
+        grid-area: box1;
+    }
+    &:nth-child(3) {
+        background-color: white;
+        grid-area: box2;
+    }
+    &:nth-child(4) {
+        background-color: white;
+        grid-area: box3;
+    }
+    &:nth-child(5) {
+        background-color: white;
+        grid-area: box4;
+    }
+    &:nth-child(6) {
+        background-color: white;
+        grid-area: box5;
+    }
+    &:nth-child(7) {
+        background-color: white;
+        grid-area: box6;
     }
 }

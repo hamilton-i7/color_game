@@ -46,21 +46,44 @@
 
     <template id="js--easyMode">
         <header class="hero--alternate">
-            <h1 class="heading-primary">rgb(35, 126, 212)</h1>
+            <h1 class="heading-primary"></h1>
 
             <ul class="hero-info">
                 <li class="hero-info__item"><a href="#" class="link" id="js--options">options</a></li>
                 <li class="hero-info__item" id="js--mode">easy</li>
-                <li class="hero-info__item" id="js--lives">lives: <strong>2</strong></li>
+                <li class="hero-info__item" id="js--lives">lives: 2</li>
             </ul>
         </header>
 
-        <main class="game">
+        <main class="game-easy">
             <i class="far fa-question-circle game__help" id="js--help"></i>
               
             <div class="game__card" id="js--box1"></div>
             <div class="game__card" id="js--box2"></div>
             <div class="game__card" id="js--box3"></div>
+        </main>
+    </template>
+
+    <template id="js--hardMode">
+        <header class="hero--alternate">
+            <h1 class="heading-primary"></h1>
+
+            <ul class="hero-info">
+                <li class="hero-info__item"><a href="#" class="link" id="js--options">options</a></li>
+                <li class="hero-info__item" id="js--mode">hard</li>
+                <li class="hero-info__item" id="js--lives">lives: 2</li>
+            </ul>
+        </header>
+
+        <main class="game-hard">
+            <i class="far fa-question-circle game__help" id="js--help"></i>
+              
+            <div class="game__card" id="js--box1"></div>
+            <div class="game__card" id="js--box2"></div>
+            <div class="game__card" id="js--box3"></div>
+            <div class="game__card" id="js--box4"></div>
+            <div class="game__card" id="js--box5"></div>
+            <div class="game__card" id="js--box6"></div>
         </main>
     </template>
 

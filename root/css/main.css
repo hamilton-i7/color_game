@@ -134,7 +134,7 @@ body {
   margin-bottom: 3rem;
 }
 
-.game {
+.game-easy {
   display: -ms-grid;
   display: grid;
   grid-auto-rows: minmax(5rem, auto);
@@ -142,6 +142,27 @@ body {
       grid-template-columns: repeat(6, 1fr);
       grid-template-areas: ". . . . . icon" ". box1 box1 box1 box1 ." ". box2 box2 box2 box2 ." ". box3 box3 box3 box3 .";
   row-gap: 3rem;
+}
+
+.game-easy .game__help {
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.game-hard {
+  display: -ms-grid;
+  display: grid;
+  gap: 3rem;
+  grid-auto-rows: minmax(5rem, auto);
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: ". icon" "box1 box2" "box3 box4" "box5 box6";
+  padding: 0 4rem;
+}
+
+.game-hard .game__help {
+  -ms-grid-column-align: end;
+      justify-self: end;
 }
 
 .game__help {
@@ -166,25 +187,43 @@ body {
 .game__card:nth-child(2) {
   background-color: white;
   -ms-grid-row: 2;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 4;
+  -ms-grid-column: 1;
   grid-area: box1;
 }
 
 .game__card:nth-child(3) {
   background-color: white;
-  -ms-grid-row: 3;
+  -ms-grid-row: 2;
   -ms-grid-column: 2;
-  -ms-grid-column-span: 4;
   grid-area: box2;
 }
 
 .game__card:nth-child(4) {
   background-color: white;
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: box3;
+}
+
+.game__card:nth-child(5) {
+  background-color: white;
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: box4;
+}
+
+.game__card:nth-child(6) {
+  background-color: white;
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: box5;
+}
+
+.game__card:nth-child(7) {
+  background-color: white;
   -ms-grid-row: 4;
   -ms-grid-column: 2;
-  -ms-grid-column-span: 4;
-  grid-area: box3;
+  grid-area: box6;
 }
 
 .gameover {
@@ -321,8 +360,8 @@ body {
   -ms-grid-row: 1;
   -ms-grid-column: 4;
   grid-area: icon;
-  -ms-grid-column-align: center;
-      justify-self: center;
+  -ms-grid-column-align: end;
+      justify-self: end;
 }
 
 #par1 {
