@@ -23,8 +23,8 @@ document.addEventListener('click', toggleHelp);
 document.addEventListener('click', checkAnswer);
 document.addEventListener('click', gameover);
 
-//* NAVIGATION
 
+//* NAVIGATION
 function changePage(e) {
     const element = e.target;
 
@@ -42,7 +42,7 @@ function changePage(e) {
         changeBoxColor();
     }
     else if(element.id === 'arrowDifficulty') {
-        reset();
+        displayMainMenu();
     }
 }
 
@@ -56,7 +56,7 @@ function toggleOptionsMenu(e) {
         exitOptionsMenu();
     }
     else if(element.id === 'js--exit') {
-        quitGame();
+        displayMainMenu();
     }
     else if(element.id === 'js--newGame') {
         optionsMenu.style.display = 'none';
@@ -76,7 +76,7 @@ function toggleHelp(e) {
     }
 }
 
-function quitGame() {
+function displayMainMenu() {
     document.body.innerHTML = original;
     document.body.removeAttribute('style');
 }

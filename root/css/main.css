@@ -140,7 +140,7 @@ body {
   grid-auto-rows: minmax(5rem, auto);
   -ms-grid-columns: (1fr)[6];
       grid-template-columns: repeat(6, 1fr);
-      grid-template-areas: ". . . . . icon" ". box1 box1 box1 box1 ." ". box2 box2 box2 box2 ." ". box3 box3 box3 box3 .";
+      grid-template-areas: ". . . . . icon" ". box1 box1 box1 box1 ." ". box2 box2 box2 box2 ." ". box3 box3 box3 box3 .";
   row-gap: 3rem;
 }
 
@@ -301,7 +301,7 @@ body {
   background-size: 127%;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: ". . . icon" "par1 par1 par1 par1" "rgb-model rgb-model rgb-model rgb-model" "par2 par2 par2 par2" "par3 par3 par3 rgb-white" "rgb-black par4 par4 par4" "par5 par5 par5 rgb-green";
+      grid-template-areas: ". . . icon" "par1 par1 par1 par1" "rgb-model rgb-model rgb-model rgb-model" "par2 par2 par2 par2" "par3 par3 par3 rgb-white" "rgb-black par4 par4 par4" "par5 par5 par5 rgb-green";
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   height: 100%;
