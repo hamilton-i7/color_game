@@ -35,9 +35,7 @@ function changePage(e) {
     const element = e.target;
 
     if(element.id === 'js--classic') {
-        document.body.innerHTML = selectDifficulty.innerHTML;
-        arrow = document.querySelector('.icon-arrow');
-        arrow.setAttribute('id', 'arrowDifficulty');
+        displayDifficultyMenu();
     }
     else if(element.id === 'arrowDifficulty') {
         displayMainMenu();
@@ -54,10 +52,16 @@ function changePage(e) {
     }
 }
 
-function displayGameContent(content) {
-    document.body.innerHTML = content.innerHTML;
-    document.body.style.backgroundImage = 'none';
-    options = document.querySelector('#js--options');
+function displayMainMenu() {
+    document.body.innerHTML = original;
+    document.body.removeAttribute('style');
+}
+
+function displayDifficultyMenu() {
+    document.body.innerHTML = selectDifficulty.innerHTML;
+    document.body.removeAttribute('style');
+    arrow = document.querySelector('.icon-arrow');
+    arrow.setAttribute('id', 'arrowDifficulty');
 }
 
 function toggleOptionsMenu(e) {
@@ -77,22 +81,9 @@ function toggleOptionsMenu(e) {
         newGame();
         exitGameoverScreen();
     }
-}
-
-function toggleHelp(e) {
-    const element = e.target;
-
-    if(element.id === 'js--help') {
-        displayHelpInfo();
+    else if(element.id === 'js--difficulty') {
+        displayDifficultyMenu();
     }
-    else if(element.id === 'js--helpOut') {
-        exitHelpInfo();
-    }
-}
-
-function displayMainMenu() {
-    document.body.innerHTML = original;
-    document.body.removeAttribute('style');
 }
 
 function displayOptionsMenu() { 
@@ -110,7 +101,18 @@ function displayOptionsMenu() {
 function exitOptionsMenu() {
     document.body.style.overflowY = 'scroll'
     optionsMenu.style.display = 'none';
-} 
+}
+
+function toggleHelp(e) {
+    const element = e.target;
+
+    if(element.id === 'js--help') {
+        displayHelpInfo();
+    }
+    else if(element.id === 'js--helpOut') {
+        exitHelpInfo();
+    }
+}
 
 function displayHelpInfo() {
     if(document.body.contains(help)) {
@@ -128,6 +130,30 @@ function exitHelpInfo() {
     document.body.style.overflowY = 'scroll';
     help.style.display = 'none';
 }
+
+function displayGameoverScreen() {
+    if(document.body.contains(gameoverScreen)) {
+        document.body.style.overflowY = 'hidden';
+        gameoverScreen.style.display = 'block';
+    }
+    else {
+        document.body.appendChild(gameoverScreen);
+        document.body.style.overflowY = 'hidden';
+        gameoverScreen.style.display = 'block'; 
+    }
+}
+
+function exitGameoverScreen() {
+    document.body.style.overflowY = 'scroll'
+    gameoverScreen.style.display = 'none';
+}
+
+function displayGameContent(content) {
+    document.body.innerHTML = content.innerHTML;
+    document.body.style.backgroundImage = 'none';
+    options = document.querySelector('#js--options');
+}
+
 
 
 //* GAME LOGIC
@@ -263,27 +289,15 @@ function gameover(e) {
 
     if((element.classList.contains('game__card') && element.style.backgroundColor !== answer) && lifeCount.innerText === 'LIVES: 0') {
         displayGameoverScreen();
-
-        answerText = document.getElementById('js--answerText');
-        answerColor = document.getElementById('js--answerColor');
-        answerText.innerHTML = `<span>Answer: </span>${answer.toUpperCase()}`;
-        answerColor.style.backgroundColor = answer;
+        displayAnswer();
     }
 }
 
-function displayGameoverScreen() {
-    if(document.body.contains(gameoverScreen)) {
-        document.body.style.overflowY = 'hidden';
-        gameoverScreen.style.display = 'block';
-    }
-    else {
-        document.body.appendChild(gameoverScreen);
-        document.body.style.overflowY = 'hidden';
-        gameoverScreen.style.display = 'block'; 
-    }
-}
+function displayAnswer() {
+    const answer = document.querySelector('.heading-primary').innerText;
 
-function exitGameoverScreen() {
-    document.body.style.overflowY = 'scroll'
-    gameoverScreen.style.display = 'none';
+    answerText = document.getElementById('js--answerText');
+    answerColor = document.getElementById('js--answerColor');
+    answerText.innerHTML = `<span>Answer: </span>${answer.toUpperCase()}`;
+    answerColor.style.backgroundColor = answer;
 }
