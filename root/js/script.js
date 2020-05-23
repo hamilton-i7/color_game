@@ -20,6 +20,8 @@ let box5;
 let box6;
 
 let lifeCount;
+let answerText;
+let answerColor;
 
 document.addEventListener('click', changePage);
 document.addEventListener('click', toggleOptionsMenu);
@@ -256,11 +258,16 @@ function loseLife() {
 
 function gameover(e) {
     const element = e.target;
-    const answer = document.querySelector('.heading-primary').innerText.toLowerCase();
+    const answer = document.querySelector('.heading-primary').innerText;
     lifeCount = document.getElementById('js--lives');
 
     if((element.classList.contains('game__card') && element.style.backgroundColor !== answer) && lifeCount.innerText === 'LIVES: 0') {
         displayGameoverScreen();
+
+        answerText = document.getElementById('js--answerText');
+        answerColor = document.getElementById('js--answerColor');
+        answerText.innerHTML = `<span>Answer: </span>${answer.toUpperCase()}`;
+        answerColor.style.backgroundColor = answer;
     }
 }
 

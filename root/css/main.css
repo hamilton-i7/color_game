@@ -267,6 +267,44 @@ body {
   margin-bottom: 5rem;
 }
 
+.answer-box {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  left: 50%;
+  position: absolute;
+  top: 10%;
+  -webkit-transform: translate(-50%, -10%);
+          transform: translate(-50%, -10%);
+  width: 80%;
+}
+
+.answer-box__info {
+  font-size: 2rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.answer-box__info span {
+  display: block;
+  font-size: 1.8rem;
+}
+
+.answer-box__color {
+  background-color: white;
+  -webkit-box-shadow: 0 10px 12px rgba(19, 19, 19, 0.3);
+          box-shadow: 0 10px 12px rgba(19, 19, 19, 0.3);
+  border-radius: 50%;
+  height: 10rem;
+  width: 10rem;
+}
+
 .hero {
   padding: 5rem;
   text-align: center;
