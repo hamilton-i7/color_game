@@ -21,9 +21,9 @@
     <nav class="main-menu">
         <h2 class="heading-secondary">main menu</h2>
         <ul class="main-menu-list">
-            <li class="main-menu-list__item"><a href="#" class="link" id="js--classic">classic</a></li>
-            <li class="main-menu-list__item"><a href="#" class="link" id="js--timeTrial">time trial</a></li>
-            <li class="main-menu-list__item"><a href="#" class="link" id="js--survival">survival</a></li>
+            <li class="main-menu-list__item"><a href="#" class="link js--classic">classic</a></li>
+            <li class="main-menu-list__item"><a href="#" class="link js--timeTrial">time trial</a></li>
+            <li class="main-menu-list__item"><a href="#" class="link js--survival">survival</a></li>
         </ul>
     </nav>
 
@@ -38,8 +38,8 @@
                 select difficulty
             </h2>
             <ul class="main-menu-list">
-                <li class="main-menu-list__item"><a href="#" class="link" id="js--easy">easy</a></li>
-                <li class="main-menu-list__item"><a href="#" class="link" id="js--hard">hard</a></li>
+                <li class="main-menu-list__item"><a href="#" class="link js--easy">easy</a></li>
+                <li class="main-menu-list__item"><a href="#" class="link js--hard">hard</a></li>
             </ul>
         </nav>
     </template>
@@ -49,18 +49,18 @@
             <h1 class="heading-primary"></h1>
 
             <ul class="hero-info">
-                <li class="hero-info__item"><a href="#" class="link" id="js--options">options</a></li>
-                <li class="hero-info__item" id="js--mode">easy</li>
-                <li class="hero-info__item" id="js--lives">lives: 2</li>
+                <li class="hero-info__item"><a href="#" class="link js--options">options</a></li>
+                <li class="hero-info__item js--mode">easy</li>
+                <li class="hero-info__item js--lives">lives: 2</li>
             </ul>
         </header>
 
         <main class="game-easy">
-            <i class="far fa-question-circle game__help" id="js--help"></i>
+            <i class="far fa-question-circle game__help js--help"></i>
               
-            <div class="game__card" id="js--box1"></div>
-            <div class="game__card" id="js--box2"></div>
-            <div class="game__card" id="js--box3"></div>
+            <div class="game__card game__card--1 js--box1"></div>
+            <div class="game__card game__card--2 js--box2"></div>
+            <div class="game__card game__card--3 js--box3"></div>
         </main>
     </template>
 
@@ -69,55 +69,79 @@
             <h1 class="heading-primary"></h1>
 
             <ul class="hero-info">
-                <li class="hero-info__item"><a href="#" class="link" id="js--options">options</a></li>
-                <li class="hero-info__item" id="js--mode">hard</li>
-                <li class="hero-info__item" id="js--lives">lives: 2</li>
+                <li class="hero-info__item"><a href="#" class="link js--options">options</a></li>
+                <li class="hero-info__item js--mode">hard</li>
+                <li class="hero-info__item js--lives">lives: 2</li>
             </ul>
         </header>
 
         <main class="game-hard">
-            <i class="far fa-question-circle game__help" id="js--help"></i>
+            <i class="far fa-question-circle game__help js--help"></i>
               
-            <div class="game__card" id="js--box1"></div>
-            <div class="game__card" id="js--box2"></div>
-            <div class="game__card" id="js--box3"></div>
-            <div class="game__card" id="js--box4"></div>
-            <div class="game__card" id="js--box5"></div>
-            <div class="game__card" id="js--box6"></div>
+            <div class="game__card game__card--1 js--box1"></div>
+            <div class="game__card game__card--2 js--box2"></div>
+            <div class="game__card game__card--3 js--box3"></div>
+            <div class="game__card game__card--4 js--box4"></div>
+            <div class="game__card game__card--5 js--box5"></div>
+            <div class="game__card game__card--6 js--box6"></div>
+        </main>
+    </template>
+
+    <template id="js--survivalMode">
+        <header class="hero--alternate">
+            <h1 class="heading-primary"></h1>
+
+            <ul class="hero-info">
+                <li class="hero-info__item"><a href="#" class="link js--options">options</a></li>
+                <li class="hero-info__item js--mode">survival</li>
+                <li class="hero-info__item js--score">score: 0</li>
+            </ul>
+        </header>
+
+        <main class="game-survival">
+            <i class="far fa-question-circle game__help js--help"></i>
+            <p class="goal-survival js--goalSurvival">goal: 15</p>
+            <p class="lives-survival js--lives">lives: 5</p>
+
+            <div class="game__card game__card--1 js--box1"></div>
+            <div class="game__card game__card--2 js--box2"></div>
+            <div class="game__card game__card--3 js--box3"></div>
+            <div class="game__card game__card--4 js--box4"></div>
+            <div class="game__card game__card--5 js--box5"></div>
         </main>
     </template>
 
     <div class="help">
         <div class="help-content">
-            <i class="far fa-arrow-alt-circle-left icon-arrow help-content__icon" id="js--helpOut"></i>
-            <p class="paragraph" id="par1">
+            <i class="far fa-arrow-alt-circle-left icon-arrow help-content__icon js--helpOut"></i>
+            <p class="paragraph par1">
                 The RGB (red, green, blue) system ranges from 0 to 255.
                 It specifies how much red, green and blue a color has.
             </p>
     
             <img src="images/rgb-model.svg" alt="RGB model" class="rgb-model">
     
-            <p class="paragraph" id="par2">
+            <p class="paragraph par2">
                 The higher the number, the lighter the color is going to be.
             </p>
-            <p class="paragraph" id="par3">
+            <p class="paragraph par3">
                 For example, rgb(255, 255, 255) will have the color white as a result.
             </p>
             <img src="images/rgb-model-white.svg" alt="White circle" class="rgb-white">
     
-            <p class="paragraph" id="par4">
+            <p class="paragraph par4">
                 ... and rgb(0, 0, 0) will have the color black as a result.
             </p>
             <img src="images/rgb-model-black.svg" alt="Black circle" class="rgb-black">
     
-            <p class="paragraph" id="par5">
+            <p class="paragraph par5">
                 On the other hand, rgb(0, 150, 0) will result in a darker green.
             </p>
             <img src="images/rgb-model-green.svg" alt="Green circle" class="rgb-green">
         </div>
     </div>
 
-    <div class="options-menu" >
+    <div class="options-menu">
         <div class="content">
             <h1 class="heading-primary">rgb <span>guessing game</span></h1>
         
@@ -128,27 +152,40 @@
                 </h2>
     
                 <ul class="main-menu-list">
-                    <li class="main-menu-list__item"><a href="#" class="link" id="js--newGame">new game</a></li>
-                    <li class="main-menu-list__item"><a href="#" class="link" id="js--difficulty">select difficulty</a></li>
-                    <li class="main-menu-list__item"><a href="#" class="link" id="js--exit">exit</a></li>
+                    <li class="main-menu-list__item"><a href="#" class="link js--newGame">new game</a></li>
+                    <li class="main-menu-list__item"><a href="#" class="link js--difficulty">select difficulty</a></li>
+                    <li class="main-menu-list__item"><a href="#" class="link js--exit">exit</a></li>
                 </ul>
             </nav>
         </div>
     </div>
 
-    <div class="gameover" >
+    <div class="gameover">
         <div class="gameover__content">
             <div class="answer-box">
-                <p class="answer-box__info" id="js--answerText"><span></span></p>
-                <div class="answer-box__color" id="js--answerColor"></div>
+                <p class="answer-box__info js--answerText"><span></span></p>
+                <div class="answer-box__color js--answerColor"></div>
             </div>
             <h1 class="heading-primary">game over</h1>
         
             <nav class="main-menu">    
                 <ul class="main-menu-list">
-                    <li class="main-menu-list__item"><a href="#" class="link" id="js--newGame">new game</a></li>
-                    <li class="main-menu-list__item"><a href="#" class="link" id="js--difficulty">select difficulty</a></li>
-                    <li class="main-menu-list__item"><a href="#" class="link" id="js--exit">exit</a></li>
+                    <li class="main-menu-list__item"><a href="#" class="link js--newGame">new game</a></li>
+                    <li class="main-menu-list__item"><a href="#" class="link js--difficulty">select difficulty</a></li>
+                    <li class="main-menu-list__item"><a href="#" class="link js--exit">exit</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="victory">
+        <div class="victory__content">
+            <h1 class="heading-primary">you win!</h1>
+        
+            <nav class="main-menu">    
+                <ul class="main-menu-list">
+                    <li class="main-menu-list__item"><a href="#" class="link js--newGame">new game</a></li>
+                    <li class="main-menu-list__item"><a href="#" class="link js--exit">exit</a></li>
                 </ul>
             </nav>
         </div>

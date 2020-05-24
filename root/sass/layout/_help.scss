@@ -35,30 +35,32 @@
         &__icon {
             align-self: center;
             color: $color-accent-1;
+            cursor: pointer;
             font-size: 2.2rem;
             grid-area: icon;
             justify-self: end;
+            -webkit-tap-highlight-color: transparent;
         }
     }
 }
 
-#par1 {
+.par1 {
     grid-area: par1;
 }
 
-#par2 {
+.par2 {
     grid-area: par2;
 }
 
-#par3 {
+.par3 {
     grid-area: par3;
 }
 
-#par4 {
+.par4 {
     grid-area: par4;
 }
 
-#par5 {
+.par5 {
     grid-area: par5;
 }
 

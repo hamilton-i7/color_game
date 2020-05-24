@@ -23,6 +23,7 @@
             color: $color-accent-1;
             cursor: pointer;
             margin-right: 1rem;
+            -webkit-tap-highlight-color: transparent;
         }
     }
 
@@ -38,6 +39,7 @@
             cursor: pointer;
             position: relative;
             width: fit-content;
+            -webkit-tap-highlight-color: transparent;
 
             &::after {
                 border-bottom: .2rem solid $color-accent-1;

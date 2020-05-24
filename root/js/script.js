@@ -2,12 +2,17 @@ const original = document.body.innerHTML;
 const selectDifficulty = document.getElementById('js--selectDifficulty');
 const easyMode = document.getElementById('js--easyMode');
 const hardMode = document.getElementById('js--hardMode');
+const survivalMode = document.getElementById('js--survivalMode');
 const optionsMenu = document.querySelector('.options-menu');
 const help = document.querySelector('.help');
-const h2 = document.querySelector('.heading-secondary');
 const gameoverScreen = document.querySelector('.gameover');
+const victoryScreen = document.querySelector('.victory');
+const h2 = document.querySelector('.heading-secondary');
 
 let menu;
+let mode;
+let score;
+let goal;
 let options;
 let helpContent;
 let arrow;
@@ -34,19 +39,24 @@ document.addEventListener('click', gameover);
 function changePage(e) {
     const element = e.target;
 
-    if(element.id === 'js--classic') {
+    if(element.classList.contains('js--classic')) {
         displayDifficultyMenu();
     }
     else if(element.id === 'arrowDifficulty') {
         displayMainMenu();
     }
-    else if(element.id === 'js--easy') {
+    else if(element.classList.contains('js--easy')) {
         displayGameContent(easyMode);
         setPrompt();
         changeBoxColor();
     }
-    else if(element.id === 'js--hard') {
+    else if(element.classList.contains('js--hard')) {
         displayGameContent(hardMode);
+        setPrompt();
+        changeBoxColor();
+    }
+    else if(element.classList.contains('js--survival')) {
+        displayGameContent(survivalMode);
         setPrompt();
         changeBoxColor();
     }
@@ -66,92 +76,68 @@ function displayDifficultyMenu() {
 
 function toggleOptionsMenu(e) {
     const element = e.target;
+    mode = document.querySelector('.js--mode');
 
-    if(element.id === 'js--options') {
-        displayOptionsMenu();
+    if(element.classList.contains('js--options')) {
+        displayScreen(optionsMenu);
+        document.querySelector('.main-menu-list__item:nth-child(2)').style.display = 'block';
+
+        if(document.querySelector('.js--mode').innerText === 'SURVIVAL') {
+            document.querySelector('.main-menu-list__item:nth-child(2)').style.display = 'none';
+        }
     }
     else if(element.parentElement.innerText === 'Options') {
         exitOptionsMenu();
     }
-    else if(element.id === 'js--exit') {
+    else if(element.classList.contains('js--exit')) {
         displayMainMenu();
     }
-    else if(element.id === 'js--newGame') {
+    else if(element.classList.contains('js--newGame')) {
         optionsMenu.style.display = 'none';
-        newGame();
-        exitGameoverScreen();
+        setPrompt();
+        reset();
+        changeBoxColor();
+        
+        exitScreen(gameoverScreen);
+        exitScreen(victoryScreen);
     }
-    else if(element.id === 'js--difficulty') {
+    else if(element.classList.contains('js--difficulty') && (mode.innerText === 'EASY' || mode.innerText === 'HARD')) {
         displayDifficultyMenu();
     }
 }
 
-function displayOptionsMenu() { 
-    if(document.body.contains(optionsMenu)) {
+function displayScreen(screen) {
+    if(document.body.contains(screen)) {
         document.body.style.overflowY = 'hidden';
-        optionsMenu.style.display = 'block';
+        screen.style.display = 'block';
     }
     else {
-        document.body.appendChild(optionsMenu);
+        document.body.appendChild(screen);
         document.body.style.overflowY = 'hidden';
-        optionsMenu.style.display = 'block'; 
+        screen.style.display = 'block'; 
     }
 }
 
-function exitOptionsMenu() {
+function exitScreen(screen) {
     document.body.style.overflowY = 'scroll'
-    optionsMenu.style.display = 'none';
+    screen.style.display = 'none';
 }
 
 function toggleHelp(e) {
     const element = e.target;
 
-    if(element.id === 'js--help') {
-        displayHelpInfo();
+    if(element.classList.contains('js--help')) {
+        displayScreen(help);
     }
-    else if(element.id === 'js--helpOut') {
-        exitHelpInfo();
+    else if(element.classList.contains('js--helpOut')) {
+        exitScreen(help);
     }
-}
-
-function displayHelpInfo() {
-    if(document.body.contains(help)) {
-        document.body.style.overflowY = 'hidden';
-        help.style.display = 'block';
-    }
-    else {
-        document.body.appendChild(help);
-        document.body.style.overflowY = 'hidden';
-        help.style.display = 'block';
-    }
-}
-
-function exitHelpInfo() {
-    document.body.style.overflowY = 'scroll';
-    help.style.display = 'none';
-}
-
-function displayGameoverScreen() {
-    if(document.body.contains(gameoverScreen)) {
-        document.body.style.overflowY = 'hidden';
-        gameoverScreen.style.display = 'block';
-    }
-    else {
-        document.body.appendChild(gameoverScreen);
-        document.body.style.overflowY = 'hidden';
-        gameoverScreen.style.display = 'block'; 
-    }
-}
-
-function exitGameoverScreen() {
-    document.body.style.overflowY = 'scroll'
-    gameoverScreen.style.display = 'none';
 }
 
 function displayGameContent(content) {
     document.body.innerHTML = content.innerHTML;
     document.body.style.backgroundImage = 'none';
-    options = document.querySelector('#js--options');
+    options = document.querySelector('.js--options');
 }
 
 
@@ -178,20 +164,28 @@ function settingBackground(boxes) {
 
 function changeBoxColor() {
 
-    if(document.body.contains(document.querySelector('#js--box6'))) {
-        box1 = document.getElementById('js--box1');
-        box2 = document.getElementById('js--box2');
-        box3 = document.getElementById('js--box3');
-        box4 = document.getElementById('js--box4');
-        box5 = document.getElementById('js--box5');
-        box6 = document.getElementById('js--box6');
+    if(document.body.contains(document.querySelector('.js--box6'))) {
+        box1 = document.querySelector('.js--box1');
+        box2 = document.querySelector('.js--box2');
+        box3 = document.querySelector('.js--box3');
+        box4 = document.querySelector('.js--box4');
+        box5 = document.querySelector('.js--box5');
+        box6 = document.querySelector('.js--box6');
     
         settingBackground([box1, box2, box3, box4, box5, box6]);
     }
+    else if(document.body.contains(document.querySelector('.js--box5'))) {
+        box1 = document.querySelector('.js--box1');
+        box2 = document.querySelector('.js--box2');
+        box3 = document.querySelector('.js--box3');
+        box4 = document.querySelector('.js--box4');
+        box5 = document.querySelector('.js--box5');
+        settingBackground([box1, box2, box3, box4, box5]);
+    }
     else {
-        box1 = document.getElementById('js--box1');
-        box2 = document.getElementById('js--box2');
-        box3 = document.getElementById('js--box3');
+        box1 = document.querySelector('.js--box1');
+        box2 = document.querySelector('.js--box2');
+        box3 = document.querySelector('.js--box3');
     
         settingBackground([box1, box2, box3]);
     }
@@ -215,9 +209,19 @@ function setPrompt() {
 function checkAnswer(e) {
     const element = e.target;
     const answer = document.querySelector('.heading-primary').innerText.toLowerCase();
+    mode = document.querySelector('.js--mode');
 
-    if(element.style.backgroundColor === answer) {
-        newGame();
+    if(element.style.backgroundColor === answer && mode.innerText === 'SURVIVAL') {
+        setPrompt();
+        changeBoxColor();
+        boxesSurvival();
+        addScore();
+        checkVictory();
+    }
+    else if(element.style.backgroundColor === answer && (mode.innerText === 'EASY' || mode.innerText === 'HARD')) {
+        setPrompt();
+        reset();
+        changeBoxColor();
     }
     else if(element.classList.contains('game__card') && element.style.backgroundColor !== answer) {
         element.style.visibility = 'hidden';
@@ -226,20 +230,25 @@ function checkAnswer(e) {
 }
 
 function reset() {
-    if(document.body.contains(document.querySelector('#js--box6'))) {
+    if(document.body.contains(document.querySelector('.js--box6'))) {
         boxesHard();
-        lifeCount = document.getElementById('js--lives').innerText = 'LIVES: 2';
+        lifeCount = document.querySelector('.js--lives').innerText = 'LIVES: 2';
+    }
+    else if(document.body.contains(document.querySelector('.js--box5'))) {
+        boxesSurvival();
+        lifeCount = document.querySelector('.js--lives').innerText = 'LIVES: 5';
+        score = document.querySelector('.js--score').innerText = 'SCORE: 0';
     }
     else {
         boxesEasy();
-        lifeCount = document.getElementById('js--lives').innerText = 'LIVES: 2';
+        lifeCount = document.querySelector('.js--lives').innerText = 'LIVES: 2';
     }
 }
 
 function boxesEasy() {
-    box1 = document.getElementById('js--box1');
-    box2 = document.getElementById('js--box2');
-    box3 = document.getElementById('js--box3');
+    box1 = document.querySelector('.js--box1');
+    box2 = document.querySelector('.js--box2');
+    box3 = document.querySelector('.js--box3');
     const boxes = [box1, box2, box3];
 
     return (boxes.forEach(function(box) {
@@ -248,12 +257,12 @@ function boxesEasy() {
 }
 
 function boxesHard() {
-    box1 = document.getElementById('js--box1');
-    box2 = document.getElementById('js--box2');
-    box3 = document.getElementById('js--box3');
-    box4 = document.getElementById('js--box4');
-    box5 = document.getElementById('js--box5');
-    box6 = document.getElementById('js--box6');
+    box1 = document.querySelector('.js--box1');
+    box2 = document.querySelector('.js--box2');
+    box3 = document.querySelector('.js--box3');
+    box4 = document.querySelector('.js--box4');
+    box5 = document.querySelector('.js--box5');
+    box6 = document.querySelector('.js--box6');
     const boxes = [box1, box2, box3, box4, box5, box6];
 
     return (boxes.forEach(function(box) {
@@ -261,43 +270,70 @@ function boxesHard() {
     }));
 }
 
-function newGame() {
-    setPrompt();
-    reset();
+function boxesSurvival() {
+    box1 = document.querySelector('.js--box1');
+    box2 = document.querySelector('.js--box2');
+    box3 = document.querySelector('.js--box3');
+    box4 = document.querySelector('.js--box4');
+    box5 = document.querySelector('.js--box5');
+    const boxes = [box1, box2, box3, box4, box5];
 
-    if(document.body.contains(document.querySelector('#js--box6'))) {
-        changeBoxColor();
-    }
-    else {
-        changeBoxColor();
-    }
+    return (boxes.forEach(function(box) {
+        box.style.visibility = 'visible';
+    }));
 }
 
 function loseLife() {
-    lifeCount = document.getElementById('js--lives');
+    lifeCount = document.querySelector('.js--lives');
     const currentLife = Number(lifeCount.innerText.split(' ')[1]);
     const newLife = currentLife - 1;
     const result = lifeCount.innerText.replace(currentLife, newLife);
-    
-    return lifeCount.innerText = result;
+
+    return lifeCount.innerText = result;    
 }
 
 function gameover(e) {
     const element = e.target;
     const answer = document.querySelector('.heading-primary').innerText;
-    lifeCount = document.getElementById('js--lives');
+    lifeCount = document.querySelector('.js--lives');
 
     if((element.classList.contains('game__card') && element.style.backgroundColor !== answer) && lifeCount.innerText === 'LIVES: 0') {
-        displayGameoverScreen();
+        displayScreen(gameoverScreen);
+        document.querySelector('.main-menu-list__item:nth-child(2)').style.display = 'block';
         displayAnswer();
+
+        if(document.querySelector('.js--mode').innerText === 'SURVIVAL') {
+            document.querySelector('.main-menu-list__item:nth-child(2)').style.display = 'none';
+        }
     }
 }
 
 function displayAnswer() {
     const answer = document.querySelector('.heading-primary').innerText;
 
-    answerText = document.getElementById('js--answerText');
-    answerColor = document.getElementById('js--answerColor');
+    answerText = document.querySelector('.js--answerText');
+    answerColor = document.querySelector('.js--answerColor');
     answerText.innerHTML = `<span>Answer: </span>${answer.toUpperCase()}`;
     answerColor.style.backgroundColor = answer;
+}
+
+function addScore() {
+    score = document.querySelector('.js--score');
+    const currentScore = Number(score.innerText.split(' ')[1]);
+    const newScore = currentScore + 1;
+    const result = score.innerText.replace(currentScore, newScore);
+
+    return score.innerText = result; 
+}
+
+function checkVictory() {
+    score = document.querySelector('.js--score');
+    goal = document.querySelector('.js--goalSurvival');
+    const currentScore = Number(score.innerText.split(' ')[1]);
+    const currentGoal = Number(goal.innerText.split(' ')[1]);
+
+    if(currentScore === currentGoal) {
+        displayScreen(victoryScreen);
+    }
+
 }

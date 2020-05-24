@@ -58,6 +58,7 @@ body {
   font-weight: inherit;
   outline: none;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .main-menu {
@@ -93,6 +94,7 @@ body {
   color: #33d9b2;
   cursor: pointer;
   margin-right: 1rem;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .main-menu-list {
@@ -117,6 +119,7 @@ body {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .main-menu-list__item::after {
@@ -165,61 +168,115 @@ body {
       justify-self: end;
 }
 
+.game-survival {
+  display: -ms-grid;
+  display: grid;
+  gap: 3rem;
+  grid-auto-rows: minmax(5rem, auto);
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: "goal icon" "lives lives " "box1 box2" "box3 box4" "box5 box5";
+  padding: 0 4rem;
+}
+
+.game-survival .goal-survival {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 2rem;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: goal;
+  -ms-grid-column-align: start;
+      justify-self: start;
+  text-transform: uppercase;
+}
+
+.game-survival .game__help {
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+.game-survival .lives-survival {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 2.8rem;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: lives;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  text-transform: uppercase;
+}
+
+.game-survival .game__card--5 {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  width: 46%;
+}
+
 .game__help {
   -ms-flex-item-align: center;
       align-self: center;
   color: #33d9b2;
+  cursor: pointer;
   font-size: 2.2rem;
   -ms-grid-row: 1;
   -ms-grid-column: 4;
   grid-area: icon;
       justify-self: center;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .game__card {
   border-radius: 1.5rem;
   -webkit-box-shadow: 0 10px 12px rgba(19, 19, 19, 0.3);
           box-shadow: 0 10px 12px rgba(19, 19, 19, 0.3);
+  cursor: pointer;
   height: 8rem;
   width: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.game__card:nth-child(2) {
+.game__card--1 {
   background-color: white;
-  -ms-grid-row: 2;
+  -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: box1;
 }
 
-.game__card:nth-child(3) {
+.game__card--2 {
   background-color: white;
-  -ms-grid-row: 2;
+  -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: box2;
 }
 
-.game__card:nth-child(4) {
+.game__card--3 {
   background-color: white;
-  -ms-grid-row: 3;
+  -ms-grid-row: 4;
   -ms-grid-column: 1;
   grid-area: box3;
 }
 
-.game__card:nth-child(5) {
+.game__card--4 {
   background-color: white;
-  -ms-grid-row: 3;
+  -ms-grid-row: 4;
   -ms-grid-column: 2;
   grid-area: box4;
 }
 
-.game__card:nth-child(6) {
+.game__card--5 {
   background-color: white;
-  -ms-grid-row: 4;
+  -ms-grid-row: 5;
   -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
   grid-area: box5;
 }
 
-.game__card:nth-child(7) {
+.game__card--6 {
   background-color: white;
   -ms-grid-row: 4;
   -ms-grid-column: 2;
@@ -394,43 +451,45 @@ body {
       -ms-grid-row-align: center;
       align-self: center;
   color: #33d9b2;
+  cursor: pointer;
   font-size: 2.2rem;
   -ms-grid-row: 1;
   -ms-grid-column: 4;
   grid-area: icon;
   -ms-grid-column-align: end;
       justify-self: end;
+  -webkit-tap-highlight-color: transparent;
 }
 
-#par1 {
+.par1 {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 4;
   grid-area: par1;
 }
 
-#par2 {
+.par2 {
   -ms-grid-row: 4;
   -ms-grid-column: 1;
   -ms-grid-column-span: 4;
   grid-area: par2;
 }
 
-#par3 {
+.par3 {
   -ms-grid-row: 5;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: par3;
 }
 
-#par4 {
+.par4 {
   -ms-grid-row: 6;
   -ms-grid-column: 2;
   -ms-grid-column-span: 3;
   grid-area: par4;
 }
 
-#par5 {
+.par5 {
   -ms-grid-row: 7;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
@@ -512,5 +571,46 @@ body {
 }
 
 .content > h1 {
+  margin-bottom: 5rem;
+}
+
+.victory {
+  bottom: 0;
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.victory__content {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-backdrop-filter: blur(2.5rem);
+          backdrop-filter: blur(2.5rem);
+  background-color: rgba(19, 19, 19, 0.6);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+
+.victory__content > h1 {
   margin-bottom: 5rem;
 }

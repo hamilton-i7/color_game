@@ -31,41 +31,84 @@
     }
 }
 
+.game-survival {
+    display: grid;
+    gap: 3rem;
+    grid-auto-rows: minmax(5rem, auto);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+        "goal icon"
+        "lives lives "
+        "box1 box2"
+        "box3 box4"
+        "box5 box5";
+    padding: 0 4rem;
+
+    & .goal-survival {
+        align-self: center;
+        font-size: 2rem;
+        grid-area: goal;
+        justify-self: start;
+        text-transform: uppercase;
+    }
+
+    & .game__help {
+        justify-self: end;
+    }
+
+    & .lives-survival {
+        align-self: center;
+        font-size: 2.8rem;
+        grid-area: lives;
+        justify-self: center;
+        text-transform: uppercase;
+    }
+
+    & .game__card--5 {
+        justify-self: center;
+        width: 46%;
+    }
+}
+
 .game__help {
     align-self: center;
     color: $color-accent-1;
+    cursor: pointer;
     font-size: 2.2rem;
     grid-area: icon;
     justify-self: center;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .game__card {
     border-radius: 1.5rem;
     box-shadow: $shadow;
+    cursor: pointer;
     height: 8rem;
     width: 100%;
+    -webkit-tap-highlight-color: transparent;
 
-    &:nth-child(2) {
+    &--1 {
         background-color: white;
         grid-area: box1;
     }
-    &:nth-child(3) {
+    &--2 {
         background-color: white;
         grid-area: box2;
     }
-    &:nth-child(4) {
+    &--3 {
         background-color: white;
         grid-area: box3;
     }
-    &:nth-child(5) {
+    &--4 {
         background-color: white;
         grid-area: box4;
     }
-    &:nth-child(6) {
+    &--5 {
         background-color: white;
         grid-area: box5;
     }
-    &:nth-child(7) {
+    &--6 {
         background-color: white;
         grid-area: box6;
     }
